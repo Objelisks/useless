@@ -1,0 +1,16 @@
+mixin deletables
+  script.
+    function deletePost(resource, id) {
+      let hit = `/${resource}/${id}`;
+      fetch(hit, {
+          method: 'DELETE',
+          mode: 'same-origin',
+          credentials: 'same-origin'
+        })
+        .then((res) => {
+          window.location = `/${resource}`;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }

@@ -1,0 +1,6 @@
+mixin project(data)
+  article
+    h2= data.title
+    img(src='/images/projects/' + data.img)
+    p= data.body
+    a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete

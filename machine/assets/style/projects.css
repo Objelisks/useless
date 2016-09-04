@@ -1,0 +1,53 @@
+body {
+  background-image: url('../images/hoffman.png');
+  font-family: 'Open-sans', sans-serif;
+}
+
+article {
+  position: relative;
+  background-image: url('../images/pixel_weave.png');
+  border: 2px solid black;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  transition: box-shadow 0.05s;
+  width: 400px;
+  height: 400px;
+  padding: 8px;
+  margin: 20px;
+}
+
+article.linked:hover {
+  box-shadow: 12px 12px 12px rgba(0,0,0,0.3);
+}
+
+article h2 {
+  margin: 0px;
+  text-align: center;
+}
+
+.edit, .delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.delete {
+  top: 32px;
+}
+
+aside {
+  position: fixed;
+  top: 100px;
+  left: 700px;
+  width: 200px;
+  height: 400px;
+  background-image: url('../images/pixel_weave.png');
+  border: 2px solid black;
+  box-shadow: 12px 12px 12px rgba(0,0,0,0.3);
+  padding: 8px;
+  margin: 20px;
+  font-weight: bold;
+}
+
+aside a {
+  display: block;
+}

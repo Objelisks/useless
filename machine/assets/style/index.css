@@ -1,0 +1,17 @@
+body {
+  background-image: url('../images/hoffman.png');
+  font-family: 'Open-sans', sans-serif;
+}
+
+.comment {
+  background-image: url('../images/pixel_weave.png');
+  border: 2px solid black;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  width: 200px;
+  height: 200px;
+  padding: 8px;
+  margin: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}

@@ -1,0 +1,8 @@
+mixin footer
+  footer: nav: ul
+    unless req.originalUrl === '/'
+      li: a(href='/') home mode
+    unless req.originalUrl === '/blog'
+      li: a(href='/blog') blog mode
+    unless req.originalUrl === '/projects'
+      li: a(href='/projects') projects mode

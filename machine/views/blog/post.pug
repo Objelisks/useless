@@ -1,0 +1,11 @@
+mixin post(data, linked)
+  if linked
+    article.linked(onclick='window.location = "/blog/' + data.id + '"')
+      h2= data.title
+      p= data.body
+      span= data.date.toDateString()
+  else
+    article
+      h2= data.title
+      p= data.body
+      span= data.date.toDateString()

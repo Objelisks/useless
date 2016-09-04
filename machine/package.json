@@ -1,0 +1,25 @@
+{
+  "name": "machine",
+  "version": "1.0.0",
+  "description": "Experimental sub-orbital web development workstation",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "db": "rethinkdb db/data",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Objelisks",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "express-session-rethinkdb": "^0.4.1",
+    "helmet": "^2.1.2",
+    "multer": "^1.2.0",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
+    "pug": "^2.0.0-beta6",
+    "rethinkdb": "^2.3.3"
+  }
+}

@@ -1,0 +1,21 @@
+include ../common/header
+include ../common/footer
+include ../common/delete
+include ../common/admin
+include ./post
+
+doctype html
+html
+  head
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet')
+    link(href='/style/blog.css' rel='stylesheet')
+  body
+    +header('hi welcome to blog posts')
+    section
+      if article
+        +post(article, false)
+      else if articles
+        each article in articles
+          +post(article, true)
+    +adminBox('blog', article)
+    +footer
