@@ -9,6 +9,11 @@ const tables = [
   'users'
 ];
 
+const indicies = {
+  'articles': 'date',
+  'projects': 'date'
+};
+
 r.connect({
   host: 'localhost',
   port: 28015
@@ -20,11 +25,18 @@ r.connect({
     conn.use(dbName);
 
     Promise.all(tables.map((table) => {
-      r.tableCreate(table).run(conn, (err, result) => {
+      return r.tableCreate(table).run(conn).then((err, result) => {
         console.log('added table:', table);
       });
     })).then(() => {
-      conn.close();
+      Promise.all(Object.keys(indicies).map((table) => {
+        let key = indicies[table];
+        return r.table(table).indexCreate(key).run(conn).then(() => {
+          console.log('added index:', key);
+        });
+      })).then(() => {
+        conn.close();
+      });
     });
   });
 });

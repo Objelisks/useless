@@ -18,7 +18,7 @@ let sessionStore = new RethinkStore({
     servers: [
       { host: 'localhost', port: 28015 }
     ],
-    db: 'test'
+    db: 'machine'
   },
   table: 'session'
 });
