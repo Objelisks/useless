@@ -9,12 +9,23 @@ module.exports.connect = function() {
     }, (err, conn) => {
       if(err) throw err;
       connection = conn;
-      connection.use('test');
+      connection.use('machine');
+      connection.on('error', () => {
+        console.log('reconnecting to db...');
+        connection.reconnect((err, conn) => {
+          if(err) {
+            console.log(err);
+          } else {
+            console.log('reconnected');
+            connection = conn;
+          }
+        });
+      })
       console.log('connected to db');
       resolve();
     });
   });
-  
+
   return promise;
 }
 
