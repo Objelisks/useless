@@ -1,21 +1,14 @@
-let https = require('https');
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let helmet = require('helmet');
 
+let db = require('./server/db.js');
+
 let fs = require('fs');
 let secrets = JSON.parse(fs.readFileSync('secrets.json'));
-let httpsOptions = {
-  key: fs.readFileSync('creds/key.pem'),
-  cert: fs.readFileSync('creds/cert.pem')
-};
 
 let r = require('rethinkdb');
-let db = require('./server/db.js');
-let blogHandler = require('./server/blogHandler.js');
-let projectsHandler = require('./server/projectsHandler.js');
-
 let session = require('express-session');
 let RethinkStore = require('express-session-rethinkdb')(session);
 let sessionStore = new RethinkStore({
@@ -40,8 +33,8 @@ app.use(helmet());
 app.use(session({
   secret: secrets.session_secret,
   store: sessionStore,
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }));
 
 // views
@@ -70,10 +63,12 @@ passport.use(new TwitterStrategy({
 }, (token, tokenSecret, profile, done) => {
   let user = { id: token, name: profile.username };
   db.run(r.table('users').get(token), (err, result) => {
+    if(err) console.error(err);
     if(result) {
       done(null, result);
     } else {
       db.run(r.table('users').insert(user), (err, result) => {
+        if(err) console.error(err);
         done(null, user);
       });
     }
@@ -92,8 +87,8 @@ app.get('/logout', (req, res) => {
 });
 
 // website parts
-app.use('/blog', blogHandler);
-app.use('/projects', projectsHandler);
+app.use('/blog', require('./server/blogHandler.js'));
+app.use('/projects', require('./server/projectsHandler.js'));
 
 // o no
 app.use((req, res) => {
@@ -101,8 +96,26 @@ app.use((req, res) => {
 });
 
 // startitup
-https.createServer(httpsOptions, app).listen(3001, () => {
-  console.log('listening on 3001');
-});
+let disableHttps = process.argv.some((arg) => { return arg === '--noHttps'});
+let portSpecified = process.argv.indexOf('--port');
+let actualPort = parseInt(process.argv[portSpecified + 1]);
+let port = portSpecified > 1 ? actualPort : 3000;
+
+if(disableHttps) {
+  let http = require('http');
+  http.createServer(app).listen(port, () => {
+    console.log('http listening on', port);
+  });  
+} else {
+  let https = require('https');
+  let httpsOptions = {
+    key: fs.readFileSync('creds/key.pem'),
+    cert: fs.readFileSync('creds/cert.pem')
+  };
+  
+  https.createServer(httpsOptions, app).listen(port, () => {
+    console.log('https listening on', port);
+  });
+}
 
 });

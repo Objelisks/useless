@@ -3,4 +3,5 @@ mixin project(data)
     h2= data.title
     img(src='/images/projects/' + data.img)
     p= data.body
-    a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete
+    if req.user && req.user.admin
+      a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete
