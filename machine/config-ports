@@ -1,0 +1,4 @@
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3000
+iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 3000
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3001
+iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 443 -j REDIRECT --to-ports 3001

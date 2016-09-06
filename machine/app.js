@@ -1,3 +1,4 @@
+let https = require('https');
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
@@ -5,6 +6,10 @@ let helmet = require('helmet');
 
 let fs = require('fs');
 let secrets = JSON.parse(fs.readFileSync('secrets.json'));
+let httpsOptions = {
+  key: fs.readFileSync('creds/key.pem'),
+  cert: fs.readFileSync('creds/cert.pem')
+};
 
 let r = require('rethinkdb');
 let db = require('./server/db.js');
@@ -96,8 +101,8 @@ app.use((req, res) => {
 });
 
 // startitup
-app.listen(3000, () => {
-  console.log('listening on 3000');
+https.createServer(httpsOptions, app).listen(3001, () => {
+  console.log('listening on 3001');
 });
 
 });
