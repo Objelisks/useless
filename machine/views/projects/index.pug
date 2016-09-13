@@ -1,5 +1,6 @@
 include ../common/header
-include ../common/footer
+include ../common/head
+include ../common/nav
 include ../common/delete
 include ../common/admin
 include project
@@ -7,14 +8,14 @@ include project
 doctype html
 html
   head
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet')
+    +headstuff
     link(href='/style/projects.css' rel='stylesheet')
-    include ../favicons.html
   body
     +header('hi welcome to projects etc')
+    aside.side
+      +nav
     section
       +deletables
       each thing in projects
         +project(thing)
     +adminBox('projects')
-    +footer

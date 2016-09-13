@@ -1,4 +1,5 @@
 include ../common/header
+include ../common/head
 include ../common/footer
 include ../common/delete
 include ../common/admin
@@ -7,9 +8,8 @@ include ./post
 doctype html
 html
   head
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet')
+    +headstuff
     link(href='/style/blog.css' rel='stylesheet')
-    include ../favicons.html
   body
     +header('hi welcome to blog posts')
     section

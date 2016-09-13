@@ -1,11 +1,10 @@
 include delete
 
 mixin adminBox(place, context)
-  aside
-    h3 friendly admin box~~
-    if !req.user
-      a(href='/auth/twitter') twit auth
-    else
+
+  if req.user
+    aside.adminBox
+      h3 friendly admin box~~
       span= req.user.name
       a(href='/logout') logout
       if req.user.admin

@@ -34,7 +34,7 @@ article h2 {
   top: 32px;
 }
 
-aside {
+.adminBox {
   position: fixed;
   top: 100px;
   left: 700px;
@@ -48,6 +48,6 @@ aside {
   font-weight: bold;
 }
 
-aside a {
+.adminBox a {
   display: block;
 }

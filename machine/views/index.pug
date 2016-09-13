@@ -1,13 +1,16 @@
-include common/footer
+include common/nav
+include common/head
 
 doctype html
 html
   head
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet')
+    +headstuff
     link(href='/style/index.css' rel='stylesheet')
-    include favicons.html
   body
-    header: h1 Hello World
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec purus ut velit consequat ultricies eu non diam. Vestibulum ullamcorper fringilla mauris, sit amet tempor libero tempor sit amet. In in placerat risus. Duis non fringilla sapien. In vestibulum porttitor feugiat. Integer vestibulum vitae augue venenatis fermentum. In euismod tellus est, eu lobortis sem luctus at. Donec mollis bibendum metus, sed pretium purus iaculis id. Nullam eget dignissim risus, quis scelerisque dolor. Curabitur quis elit leo. Cras hendrerit orci a massa efficitur, iaculis venenatis erat pretium. Duis sed sollicitudin mauris. Phasellus porta magna eu tellus congue facilisis. Pellentesque ultrices urna purus, in sagittis magna tincidunt cursus. Phasellus ultricies finibus orci et lobortis.
-
-    +footer
+    .main
+      +nav
+      section.center
+        header: h1 Internet Website Useless Machine
+        p.
+          Hi, I'm Tim. I am #[a(href='https://twitter.com/objelisks') @objelisks] on most of the internet.
+          This website is a collection of my thoughts and projects and experiments.
