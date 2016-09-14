@@ -1,6 +1,10 @@
+@import 'https://fonts.googleapis.com/css?family=Vollkorn';
+
 body {
+  background-blend-mode: multiply;
+  background-color: hsl(180, 50%, 75%);
   background-image: url('../images/concrete_seamless.png');
-  font-family: serif;
+  font-family: 'Vollkorn', serif;
   font-size: 20px;
   line-height: 1.3;
 }
@@ -13,12 +17,12 @@ a:hover {
   background-color: rgba(163, 213, 224, 0.3);
 }
 
-.main {
+.container {
   display: flex;
   flex-flow: row wrap;
 }
 
-.center {
+.content {
   max-width: 480px;
 }
 
@@ -29,4 +33,75 @@ a:hover {
 
 .navbar li {
   list-style-image: url(../emoji/donut.svg)
+}
+
+.admin:after {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: middle;
+  content: "";
+}
+
+.admin.yes:after {
+  background-image: url(../emoji/good.svg);
+}
+.admin.no:after {
+  background-image: url(../emoji/dame.svg);
+}
+
+.wave {
+  position: relative;
+  animation: 0.5s linear 0s infinite alternate floating;
+}
+.wave.a {
+  top: -3px;
+  animation-delay: -.8s;
+}
+.wave.b {
+  top: -0.6px;
+  animation-delay: -.6s;
+}
+.wave.c {
+  top: 1.8px;
+  animation-delay: -.4s;
+}
+.wave.d {
+  top: 1.2px;
+  animation-delay: -.2s;
+}
+.wave.e {
+  top: -1.2px;
+  animation-delay: 0s;
+}
+
+@keyframes floating {
+  from {
+    top: -3px;
+  }
+  to {
+    top: 3px;
+  }
+}
+
+.edit, .delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.delete {
+  top: 32px;
+}
+
+.project {
+  position: relative;
+  border: 4px solid white;
+  border-radius: 16px;
+  justify-content: center;
+}
+
+.adminBox {
+  border: 1px solid white;
 }

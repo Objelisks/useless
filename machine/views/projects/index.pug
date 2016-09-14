@@ -9,13 +9,11 @@ doctype html
 html
   head
     +headstuff
-    link(href='/style/projects.css' rel='stylesheet')
   body
-    +header('hi welcome to projects etc')
-    aside.side
+    .container
       +nav
-    section
-      +deletables
-      each thing in projects
-        +project(thing)
-    +adminBox('projects')
+      section.content
+        +header('hi welcome to projects etc')
+        each thing in projects
+          +project(thing)
+      +adminBox('projects')

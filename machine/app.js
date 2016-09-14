@@ -2,6 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let helmet = require('helmet');
+let pluralize = require('pluralize');
 
 let db = require('./server/db.js');
 
@@ -41,11 +42,6 @@ app.use(session({
 app.set('views', './views');
 app.set('view engine', 'pug');
 app.use(express.static('assets'));
-
-// index
-app.get('/', (req, res) => {
-  res.render('index', {req: req});
-});
 
 // handle twitter login
 passport.serializeUser(function(user, done) {
@@ -87,6 +83,7 @@ app.get('/logout', (req, res) => {
 });
 
 // website parts
+app.use('/', require('./server/indexHandler.js'));
 app.use('/blog', require('./server/blogHandler.js'));
 app.use('/projects', require('./server/projectsHandler.js'));
 

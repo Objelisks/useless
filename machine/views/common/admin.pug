@@ -1,12 +1,10 @@
 include delete
 
 mixin adminBox(place, context)
-
   if req.user
     aside.adminBox
       h3 friendly admin box~~
-      span= req.user.name
-      a(href='/logout') logout
+      p= req.user.name
       if req.user.admin
         ul
           li: a(href='/' + place + '/edit/new') make a new one

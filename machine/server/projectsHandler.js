@@ -25,10 +25,14 @@ routes.get('/', (req, res) => {
         res.status(500).send(err);
       } else {
         cursor.toArray((err, projects) => {
-          res.render('projects/index', {
-            req: req,
-            projects: projects
-          });
+          if(err) {
+            res.status(500).send(err);
+          } else {
+            res.render('projects/index', {
+              req: req,
+              projects: projects
+            });
+          }
         });
       }
   });
