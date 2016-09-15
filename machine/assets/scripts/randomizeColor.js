@@ -1,4 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
     let color = Math.random()*360;
-    document.body.style.backgroundColor = `hsl(${color}, 25%, 75%)`;    
+    document.getElementById('nav').style.backgroundColor = `hsl(${color}, 50%, 75%)`;    
 });

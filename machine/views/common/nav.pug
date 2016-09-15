@@ -1,8 +1,9 @@
 mixin nav
-  nav.navbar
+  nav.navbar#nav
+    h2 nav
     ul
       unless req.originalUrl === '/'
-        li: a(href='/') home mode
+        li: a(href='/') about mode
       unless req.originalUrl === '/blog'
         li: a(href='/blog') blog mode
       unless req.originalUrl === '/projects'

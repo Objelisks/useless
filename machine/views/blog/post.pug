@@ -1,6 +1,6 @@
 mixin post(data, shortmode)
   if shortmode
-    article.post
+    article.box
       header.container.split
         h2= data.title
         span.post-date= data.date.toDateString()
@@ -11,7 +11,7 @@ mixin post(data, shortmode)
       section!= shortContent
       a(href='/blog/' + data.id) full article
   else
-    article.post
+    article.box
       header.container.split
         h2= data.title
         span.post-date= data.date.toDateString()
