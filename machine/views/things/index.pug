@@ -1,0 +1,15 @@
+include ../common/nav
+include ../common/head
+include ../common/wave
+
+doctype html
+html
+  head
+    +headstuff
+  body
+    .container
+      +nav
+      section.content.narrow
+        header: h1 neat experimental projects
+        each thing in things
+          .thing: a(href='/things/' + thing.url)= thing.name

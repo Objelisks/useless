@@ -1,0 +1,3 @@
+[submodule "machine/assets/things/resistance"]
+	path = machine/assets/things/resistance
+	url = https://github.com/Objelisks/resistance

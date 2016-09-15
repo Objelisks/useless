@@ -1,0 +1,431 @@
+<html>
+<head>
+    
+</head>
+<body>
+<?xml version="1.0"?>
+<svg width="1200" height="800" 
+     viewPort="0 0 1200 800" version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink">
+	
+	<script type="text/javascript">
+		// <![CDATA[
+		// defs
+		
+		// ]]>
+	</script>
+	
+	<defs>
+		<clipPath id="clip">
+			<circle cx="40" cy="99" r="100"/>
+		</clipPath>
+	</defs>
+
+	<g transform="translate(400 500)" filter="url(#rgbShift)"><desc>Clock</desc>
+		
+		<path d="M 1 0 A 200,200 0 1,0 -1,0" transform="translate(0 0)"
+			fill="none"
+			stroke-width="1"
+			stroke="black"/>
+		<path d="M 1 0 A 190,190 0 1,0 -1,0" transform="translate(0 -10)"
+			fill="none"
+			stroke-width="3"
+			stroke="black"/>
+		<path d="M 1 0 A 195,195 0 1,0 -1,0" transform="translate(0 -5)"
+			fill="none"
+			stroke-width="30"
+			stroke-dasharray="1, 5"
+			stroke="black"/>
+		<path d="M 1 0 A 195,195 0 1,0 -1,0" transform="translate(0 -5)"
+			fill="none"
+			stroke-width="100"
+			stroke-dasharray="1, 35"
+			stroke="black"/>
+		<path d="M 1 0 A 195,195 0 1,0 -1,0" transform="translate(0 -5)"
+			fill="none"
+			stroke-width="50"
+			stroke-dasharray="11, 61"
+			stroke-dashoffset="5"
+			stroke="white"/>
+		<text transform="translate(0 80)"
+			font-family="Verdana"
+			font-variant="small-caps"
+			letter-spacing="3em"
+			text-anchor="middle">
+			chronometer
+		</text>
+		<g transform="translate(0 -200) rotate(-90)">
+			<circle r="10" transform="translate(1 0)"/>
+			<g id="millisecondHand"><desc>second</desc>
+				<g>
+					<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="0 0 0"
+							to="360 0 0"
+							dur="2s"
+							repeatCount="indefinite"
+							/>
+					<circle r="0" transform="translate(155 0)"/>
+				</g>
+			</g>
+			<g id="secondHand"><desc>minute</desc>
+				<g>
+				<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="0 0 0"
+							to="360 0 0"
+							dur="60s"
+							repeatCount="indefinite"
+							/>
+					<circle r="5" transform="translate(185 0)"/>
+				</g>
+			</g>
+			<g id="minuteHand"><desc>hour</desc>
+				<g>
+					<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="0 0 0"
+							to="360 0 0"
+							dur="3600s"
+							repeatCount="indefinite"
+							/>
+					<circle r="10" transform="translate(200 0)"/>
+				</g>
+			</g>
+			<g id="hourHand"><desc>hour</desc>
+				<g>
+					<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="0 0 0"
+							to="360 0 0"
+							dur="43200s"
+							repeatCount="indefinite"
+							/>
+					<circle r="15" transform="translate(230 0)"/>
+				</g>
+			</g>
+			<g id="mercury"><desc>Mercury</desc>
+				<g>
+				<animateTransform attributeType="XML"
+						attributeName="transform"
+						type="rotate"
+						from="0 0 0"
+						to="360 0 0"
+						dur="7.57366e1s"
+						repeatCount="indefinite"
+						/>
+				<g transform="translate(30.79 0)">
+					<circle r="1.146"/>
+					<text>
+						<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="90 0 0"
+							to="-270 0 0"
+							dur="7.57366e1s"
+							repeatCount="indefinite"
+							/>
+					</text>
+				</g>
+				</g>
+			</g>
+			<g id="venus"><desc>Venus</desc>
+				<g>
+				<animateTransform attributeType="XML"
+						attributeName="transform"
+						type="rotate"
+						from="0 0 0"
+						to="360 0 0"
+						dur="1.9565e2s"
+						repeatCount="indefinite"
+						/>
+				<g transform="translate(56.84 0)">
+					<circle r="2.847"/>
+					<text>
+						<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="90 0 0"
+							to="-270 0 0"
+							dur="1.9565e2s"
+							repeatCount="indefinite"
+							/>
+					</text>
+				</g>
+				</g>
+			</g>
+			<g id="earth"><desc>Earth</desc>
+				<g>
+				<animateTransform attributeType="XML"
+						attributeName="transform"
+						type="rotate"
+						from="0 0 0"
+						to="360 0 0"
+						dur="3.15569e2s"
+						repeatCount="indefinite"
+						/>
+				<g transform="translate(78.94 0)">
+					<circle r="3"/>
+					<text>
+						<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="90 0 0"
+							to="-270 0 0"
+							dur="3.15569e2s"
+							repeatCount="indefinite"
+							/>
+					</text>
+					<g id="moon"><desc>Moon</desc>
+						<g>
+						<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="0 0 0"
+							to="360 0 0"
+							dur="2.62974e1s"
+							repeatCount="indefinite"
+							/>
+						<circle r="0.817" transform="translate(6 0)"/>
+						</g>
+					</g>
+				</g>
+				</g>
+			</g>
+			<g id="mars"><desc>Mars</desc>
+				<g>
+				<animateTransform attributeType="XML"
+						attributeName="transform"
+						type="rotate"
+						from="0 0 0"
+						to="360 0 0"
+						dur="5.9327e2s"
+						repeatCount="indefinite"
+						/>
+				<g transform="translate(120 0)">
+					<circle r="1.596"/>
+					<text>
+						<animateTransform attributeType="XML"
+							attributeName="transform"
+							type="rotate"
+							from="90 0 0"
+							to="-270 0 0"
+							dur="5.9327e2s"
+							repeatCount="indefinite"
+							/>
+					</text>
+				</g>
+				</g>
+			</g>
+		</g>
+	</g>
+ 
+	<g filter="url(#rgbShift)" visibility="hidden"><desc>rgb shift random stuff</desc>
+
+		<text x="10" y="10" font-size="20" clip-path="url(#clip)">
+			amazon
+		</text>
+		<g>
+			<path d="M 300 300 A 20,20 0 1,0 290,300"
+				fill="none"
+				stroke="black"
+				stroke-width="20"
+				stroke-dasharray="1, 1, 2, 2, 2, 3, 2, 2, 2, 1"/>
+			<path d="M 300 300 A 20,20 0 0,1 290,300"
+				fill="none"
+				stroke="black"
+				stroke-width="20"
+				stroke-dasharray="1, 1, 2, 2, 2, 3, 2, 2, 2, 1"/>
+		</g>
+		<rect x="25" y="25" width="50" height="50" fill="white">
+			<animateTransform attributeType="XML"
+					 attributeName="transform"
+					 type="rotate"
+					 from="0 50 50" to="360 50 50"
+					 dur="1600ms"
+					 repeatCount="indefinite"/>
+			
+		</rect>
+		<rect x="80" y="30" width="50" height="50">
+			<animateTransform attributeType="XML"
+					 attributeName="transform"
+					 type="rotate"
+					 from="60 105 55" to="-300 105 55"
+					 dur="1600ms"
+					 repeatCount="indefinite"/>
+			
+		</rect>
+		<rect x="113" y="73" width="50" height="50">
+			<animateTransform attributeType="XML"
+					 attributeName="transform"
+					 type="rotate"
+					 from="0 138 98" to="360 138 98"
+					 dur="1600ms"
+					 repeatCount="indefinite"/>
+			
+		</rect>
+		<rect x="50" y="200" height="50" width="50" fill="black"/>
+		<text x="200" y="80" font-family="Times New Roman" font-size="30">
+			Hello world!
+			<animate
+				attributeType="XML"
+				attributeName="y"
+				values="100;100;110;110;100"
+				keyTimes="0;0.3;0.5;0.8;1"
+				begin="0ms"
+				dur="800ms"
+				repeatCount="indefinite"/>
+			<animate
+				attributeType="XML"
+				attributeName="x"
+				values="200;190;200;210;200;"
+				keyTimes="0;0.25;0.5;0.75;1;"
+				begin="0ms"
+				dur="1600ms"
+				repeatCount="indefinite"/>
+		</text>
+		<g transform="translate(200, 50)">
+			<g>
+				<a xlink:href="http://www.amazon.com" target="_blank">
+					<circle fill="black" r="10"/>
+					<circle fill="white" r="7"/>
+					<text x="-4" y="4" fill="black" font-family="Frutiger" font-weight="bold" font-size="18">
+						a
+					</text>
+				</a>
+				<animateTransform
+					attributeType="XML"
+					attributeName="transform"
+					type="scale"
+					values="1;2;3;3;2;1;"
+					keyTimes="0;0.4;0.5;0.6;0.9;1;"
+					begin="0ms"
+					dur="800ms"
+					repeatCount="indefinite"/>
+			</g>
+		</g>
+		<g filter="url(#distort)">
+			<animateTransform attributeName="transform" type="translate" 
+				from="0 0" to="0 -20000" dur="200" repeatCount="indefinite" 
+				additive="sum"/>
+			<rect x="150" y="200" width="50" height="50" fill="black">
+				 <animateTransform attributeName="transform" 
+					type="translate" from="0 0" to="0 20000" dur="200" 
+					repeatCount="indefinite"/>
+			</rect>
+		</g>
+	</g>
+
+	<filter id="distort">
+		<feTurbulence result="turbo"
+			numOctaves="2"
+			baseFrequency="0.05">
+		</feTurbulence>
+		<!--feOffset in="turbo" dx="20" result="turboOffset">
+			<animate
+				attributeType="XML"
+				attributeName="dx"
+				values="-20;20;-20"
+				keyTimes="0;0.5;1;"
+				dur="800ms"
+				repeatCount="indefinite"/>
+		</feOffset-->
+		<feDisplacementMap in="SourceGraphic" in2="turbo"
+			scale="10"/>
+	</filter>
+
+	<filter id="rgbShift">
+		<feColorMatrix in="SourceGraphic" result="redCopy"
+		  type="matrix"
+		  values="1 1 1 1 0
+				  0 0 0 0 0
+				  0 0 0 0 0
+				  0 0 0 0.5 0" />
+		<feOffset in="redCopy" result="redOffset" dx="1" dy="2">
+			<animate
+				attributeType="XML"
+				attributeName="dx"
+				values="0;2;-1;4;0;-2;0;"
+				keyTimes="0;0.1;0.2;0.3;0.6;0.9;1;"
+				dur="800ms"
+				repeatCount="indefinite"/>
+		</feOffset>
+		<feColorMatrix in="SourceGraphic" result="greenCopy"
+		  type="matrix"
+		  values="0 0 0 0 0
+				  1 1 1 1 0
+				  0 0 0 0 0
+				  0 0 0 0.5 0" />
+		<feOffset in="greenCopy" result="greenOffset" dx="-1" dy="0">
+			<animate
+				attributeType="XML"
+				attributeName="dy"
+				values="0;2;1;4;0;-1;0;"
+				keyTimes="0;0.1;0.2;0.3;0.6;0.9;1;"
+				dur="800ms"
+				repeatCount="indefinite"/>
+		</feOffset>
+		<feColorMatrix in="SourceGraphic" result="blueCopy"
+		  type="matrix"
+		  values="0 0 0 0 0
+				  0 0 0 0 0
+				  1 1 1 1 0
+				  0 0 0 0.5 0" />
+		<feOffset in="blueCopy" result="blueOffset" dx="0" dy="-2">
+			<animate
+				attributeType="XML"
+				attributeName="dy"
+				values="0;-4;1;2;0;-1;0;"
+				keyTimes="0;0.1;0.2;0.3;0.6;0.9;1;"
+				dur="800ms"
+				repeatCount="indefinite"/>
+		</feOffset>
+		<feMerge>
+			<feMergeNode in="redOffset"/>
+			<feMergeNode in="greenOffset"/>
+			<feMergeNode in="blueOffset"/>
+			<feMergeNode in="SourceGraphic"/>
+		</feMerge>
+	</filter>
+	
+	<script type="text/javascript">
+		// <![CDATA[
+		
+		// Initialise the angles of heavenly bodies
+		var date = new Date();
+		var milliseconds = date.getMilliseconds();
+		var seconds = date.getSeconds();
+		var minutes = date.getMinutes();
+		var hours = date.getHours()%12;
+		seconds += milliseconds/1000;
+		minutes += seconds/60;
+		hours += minutes/60;
+		
+		var secondHand = document.getElementById("secondHand");
+		var minuteHand = document.getElementById("minuteHand");
+		var hourHand = document.getElementById("hourHand");
+		secondHand.setAttribute('transform', 'rotate('+seconds*360/60+')');
+		minuteHand.setAttribute('transform', 'rotate('+minutes*360/60+')');
+		hourHand.setAttribute('transform', 'rotate('+hours*360/12+')');
+		
+		var mercury = document.getElementById("mercury");
+		mercury.setAttribute('transform', 'rotate('+Math.random()*360+')');
+		var venus = document.getElementById("venus");
+		venus.setAttribute('transform', 'rotate('+Math.random()*360+')');
+		var earth = document.getElementById("earth");
+		earth.setAttribute('transform', 'rotate('+Math.random()*360+')');
+		var moon = document.getElementById("moon");
+		moon.setAttribute('transform', 'rotate('+Math.random()*360+')');
+		var mars = document.getElementById("mars");
+		mars.setAttribute('transform', 'rotate('+Math.random()*360+')');
+		
+		// ]]>
+	</script>
+</svg>
+</body>
+</html>

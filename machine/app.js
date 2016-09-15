@@ -86,6 +86,7 @@ app.get('/logout', (req, res) => {
 app.use('/', require('./server/indexHandler.js'));
 app.use('/blog', require('./server/blogHandler.js'));
 app.use('/projects', require('./server/projectsHandler.js'));
+app.use('/things', require('./server/thingsHandler.js'));
 
 // o no
 app.use((req, res) => {

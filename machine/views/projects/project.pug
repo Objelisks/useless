@@ -1,7 +1,7 @@
 mixin project(data)
   article.project.box
     .project-header
-      .title: h3= data.title
+      h3.title= data.title
       if req.user && req.user.admin
         .container.column
           a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete
