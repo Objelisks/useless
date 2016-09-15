@@ -2,6 +2,7 @@ let express = require('express');
 let r = require('rethinkdb');
 let db = require('./db.js');
 let common = require('./common.js');
+let marked = require('marked');
 
 let routes = express.Router();
 
@@ -23,10 +24,15 @@ routes.get('/', (req, res) => {
         res.status(500).send(err);
       } else {
         cursor.toArray((err, articles) => {
-          res.render('blog/index', {
-            req: req,
-            articles: articles
-          });
+          if(err) {
+            res.status(500).send(err);
+          } else {
+            res.render('blog/index', {
+              req: req,
+              articles: articles,
+              marked: marked
+            });
+          }
         });
       }
   });
@@ -35,7 +41,8 @@ routes.get('/', (req, res) => {
 routes.get('/:article', (req, res) => {
   res.render('blog/index', {
     req: req,
-    article: req.article
+    article: req.article,
+    marked: marked
   });
 });
 
@@ -43,7 +50,8 @@ routes.get('/edit/new',
   common.validateAdmin, (req, res) => {
   res.render('blog/edit', {
     req: req,
-    editing: false
+    editing: false,
+    marked: marked
   });
 });
 
@@ -52,7 +60,8 @@ routes.get('/edit/:article',
   res.render('blog/edit', {
     req: req,
     article: req.article,
-    editing: true
+    editing: true,
+    marked: marked
   });
 });
 

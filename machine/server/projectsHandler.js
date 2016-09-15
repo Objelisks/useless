@@ -49,11 +49,13 @@ routes.get('/edit/new',
 routes.post('/',
   upload.single('img'),
   common.validateAdmin, (req, res) => {
+  
   let entry = {
     title: req.body.title,
     body: req.body.body,
     date: new Date(),
-    img: req.file.filename
+    img: req.file.filename,
+    actions: req.body.actions ? req.body.actions : []
   };
 
   db.run(r.table('projects').insert(entry), (err, result) => {

@@ -10,10 +10,12 @@ html
   head
     +headstuff
   body
+    +deletables
     .container
       +nav
+        +adminBox('projects')
       section.content
         +header('hi welcome to projects etc')
-        each thing in projects
-          +project(thing)
-      +adminBox('projects')
+        .container.wide
+          each thing in projects
+            +project(thing)

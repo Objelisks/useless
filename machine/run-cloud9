@@ -1,2 +1,2 @@
-nvm use stable
+~/.nvm/nvm.sh use stable
 node app.js --noHttps --port 8081

@@ -3,12 +3,11 @@ include delete
 mixin adminBox(place, context)
   if req.user
     aside.adminBox
-      h3 friendly admin box~~
-      p= req.user.name
+      h2 ~admin box~
+      div= req.user.name
       if req.user.admin
         ul
           li: a(href='/' + place + '/edit/new') make a new one
           if context
-            +deletables
             li: a(href='#', onclick='deletePost("' + place + '", "' + context.id + '")') delete
             li: a(href='/' + place + '/edit/' + context.id) edit

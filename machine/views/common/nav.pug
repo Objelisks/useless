@@ -1,12 +1,15 @@
 mixin nav
-  nav.navbar: ul
-    unless req.originalUrl === '/'
-      li: a(href='/') home mode
-    unless req.originalUrl === '/blog'
-      li: a(href='/blog') blog mode
-    unless req.originalUrl === '/projects'
-      li: a(href='/projects') projects mode
-    if !req.user || !req.user.admin
-      li: a(href='/auth/twitter').admin.no admin mode
-    else
-      li: a(href='/logout').admin.yes admin mode
+  nav.navbar
+    ul
+      unless req.originalUrl === '/'
+        li: a(href='/') home mode
+      unless req.originalUrl === '/blog'
+        li: a(href='/blog') blog mode
+      unless req.originalUrl === '/projects'
+        li: a(href='/projects') projects mode
+      if !req.user || !req.user.admin
+        li: a(href='/auth/twitter').admin.no admin mode
+      else
+        li: a(href='/logout').admin.yes admin mode
+    if block
+      block

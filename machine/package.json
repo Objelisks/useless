@@ -17,6 +17,7 @@
     "express-session": "^1.14.1",
     "express-session-rethinkdb": "^0.4.1",
     "helmet": "^2.1.2",
+    "marked": "^0.3.6",
     "multer": "^1.2.0",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",

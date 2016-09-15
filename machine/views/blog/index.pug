@@ -1,6 +1,6 @@
 include ../common/header
 include ../common/head
-include ../common/footer
+include ../common/nav
 include ../common/delete
 include ../common/admin
 include ./post
@@ -9,14 +9,20 @@ doctype html
 html
   head
     +headstuff
-    link(href='/style/blog.css' rel='stylesheet')
   body
-    +header('hi welcome to blog posts')
-    section
-      if article
-        +post(article, false)
-      else if articles
-        each article in articles
-          +post(article, true)
-    +adminBox('blog', article)
-    +footer
+    .container
+      +nav
+        +adminBox('blog', article)
+      section.content.narrow
+        +header('hi welcome to blog posts')
+        if article
+          +post(article, false)
+        else if articles
+          each article in articles
+            +post(article, true)
+      if articles
+        section.content.narrow
+          +header('quicklinks')
+          ul
+            each article in articles
+              li: a(href='/blog/' + article.id)= article.title

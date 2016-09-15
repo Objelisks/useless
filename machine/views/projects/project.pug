@@ -1,7 +1,12 @@
 mixin project(data)
   article.project
-    h2= data.title
+    .project-header
+      .title: h3= data.title
+      if req.user && req.user.admin
+        .container.column
+          a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete
     img(src='/images/projects/' + data.img)
     p= data.body
-    if req.user && req.user.admin
-      a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete
+    .project-actions
+      each action in data.actions
+        a(href=action.url)= action.action
