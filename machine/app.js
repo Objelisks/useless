@@ -97,7 +97,7 @@ app.use((req, res) => {
 let disableHttps = process.argv.some((arg) => { return arg === '--noHttps'});
 let portSpecified = process.argv.indexOf('--port');
 let actualPort = parseInt(process.argv[portSpecified + 1]);
-let port = portSpecified > 1 ? actualPort : 3000;
+let port = portSpecified > 1 ? actualPort : (disableHttps ? 3000 : 3001);
 
 if(disableHttps) {
   let http = require('http');
