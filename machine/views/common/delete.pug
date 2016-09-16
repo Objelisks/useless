@@ -8,6 +8,7 @@ mixin deletables
           credentials: 'same-origin'
         })
         .then((res) => {
+          console.log('delete success');
           window.location = `/${resource}`;
         })
         .catch((err) => {

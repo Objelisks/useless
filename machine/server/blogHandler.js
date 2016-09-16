@@ -83,7 +83,7 @@ routes.delete('/:article',
       if(err) {
         res.status(500).send(err);
       } else {
-        res.redirect(204, '/blog/');
+        res.status(204).send();
       }
   });
 });

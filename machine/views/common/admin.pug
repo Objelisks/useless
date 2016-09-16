@@ -9,5 +9,6 @@ mixin adminBox(place, context)
         ul
           li: a(href='/' + place + '/edit/new') make a new one
           if context
-            li: a(href='#', onclick='deletePost("' + place + '", "' + context.id + '")') delete
+            +deletables
+            li: a(href='/' + place, onclick='deletePost("' + place + '", "' + context.id + '")') delete
             li: a(href='/' + place + '/edit/' + context.id) edit

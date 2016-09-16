@@ -2,14 +2,10 @@ mixin nav
   nav.navbar#nav
     h2 website
     ul
-      unless req.originalUrl === '/'
-        li: a(href='/') about
-      unless req.originalUrl === '/blog'
-        li: a(href='/blog') blog
-      unless req.originalUrl === '/projects'
-        li: a(href='/projects') projects
-      unless req.originalUrl === '/things'
-        li: a(href='/things') things
+      li: a(href='/') about
+      li: a(href='/blog') blog
+      li: a(href='/projects') projects
+      li: a(href='/things') things
       if !req.user || !req.user.admin
         li: a(href='/auth/twitter').admin.no admin
       else
