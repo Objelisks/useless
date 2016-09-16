@@ -1,3 +1,9 @@
 [submodule "machine/assets/things/resistance"]
 	path = machine/assets/things/resistance
 	url = https://github.com/Objelisks/resistance
+[submodule "machine/assets/things/astro"]
+	path = machine/assets/things/astro
+	url = https://github.com/Objelisks/ld30
+[submodule "machine/assets/things/primerl"]
+	path = machine/assets/things/primerl
+	url = git@github.com:Objelisks/primerl.git
