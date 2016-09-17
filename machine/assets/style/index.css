@@ -1,11 +1,12 @@
 @import 'https://fonts.googleapis.com/css?family=Vollkorn';
 
-body {
+html, body {
   font-family: 'Telex', serif;
   font-size: 100%;
   
   background-color: #E6DDB3;
   color: #333;
+  height: 100%;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -15,50 +16,71 @@ body, h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   color: #267370;
+  border-radius: 8px;
+  padding: 3px;
   transition: background-color 0.5s;
 }
 
 a:hover {
-  border-radius: 8px;
   background-color: #9FDFDD;
-}
-
-.navbar {
-  flex: 0 0.5 auto;
-  max-width: 20%;
-  padding: 6px;
-  
-  background-color: #B9DE9C;
-}
-
-.navbar ul {
-  padding-left: 12px;
-}
-
-.navbar li {
-  list-style: none;
-  list-style-image: url(/emoji/donut.svg);
-}
-
-.content, .preview {
-  text-align: left;
-  
-  padding: 6px;
-  margin-left: 8px;
-  margin-right: auto;
-}
-
-.narrow {
-  max-width: 40%;
-}
-
-.column {
-  flex-direction: column;
 }
 
 .container {
   display: flex;
-  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.navbar {
+  flex: 0 0 120px;
+  padding: 6px;
+  background-color: #DDB698;
+}
+
+.page {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  flex: 0 1 auto;
+  padding: 6px;
+  align-self: stretch;
+  font-size: 32px;
+  background-color: #B8B6E7;
+}
+
+.content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+}
+
+.main {
+  flex: 1 1 100%;
+  min-width: 20%;
+  padding-top: 6px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #D8E2A7;
+}
+
+.side {
+  flex: 1 1 100%;
+  min-width: 20%;
+  background-color: #E1C2EB;
+}
+
+
+.navbar ul {
+  padding-left: 24px;
+}
+
+.navbar li {
+  padding-bottom: 6px;
+  list-style: none;
+  list-style-image: url(/emoji/donut.svg);
 }
 
 .wrap { 
@@ -67,8 +89,7 @@ a:hover {
 
 .box {
   background-color: #EEE;
-  border-radius: 8px;
-  box-shadow: 3px 3px 6px #333;
+  border-radius: 3px;
   margin: 8px;
   margin-bottom: 16px;
   padding: 8px;
@@ -132,12 +153,8 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  max-width: 250px;
+  width: 250px;
   padding-bottom: 0px;
-}
-
-.project img {
-  box-shadow: 3px 3px 3px #999;
 }
 
 .project-header, .project-actions {
@@ -165,11 +182,7 @@ hr {
   flex: 1 1 auto;
 }
 
-.split {
-  justify-content: space-between;
-}
-
-.seaoflinks .thing {
+.thing {
   line-height: 1.5;
   font-size: 1.2em;
 }

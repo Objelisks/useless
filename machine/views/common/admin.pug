@@ -3,7 +3,7 @@ include delete
 mixin adminBox(place, context)
   if req.user
     aside.adminBox
-      h2 ~admin box~
+      h2 admin box
       div= req.user.name
       if req.user.admin
         ul

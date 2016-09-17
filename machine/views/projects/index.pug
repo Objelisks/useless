@@ -1,21 +1,21 @@
-include ../common/header
-include ../common/head
-include ../common/nav
+extends ../common/layout
+
 include ../common/delete
 include ../common/admin
 include project
 
-doctype html
-html
-  head
-    +headstuff
-  body
-    +deletables
-    .container
-      +nav
-        +adminBox('projects')
-      section.content
-        +header('hi welcome to projects etc')
-        .container.wrap
-          each thing in projects
-            +project(thing)
+block nav
+  +deletables
+  +adminBox('projects')
+
+block header
+  h1 fine fine projects
+
+block main
+  - let side = false;
+  .container.wrap
+    each thing in projects
+      +project(thing)
+      
+block side
+  fgsfds

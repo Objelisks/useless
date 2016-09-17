@@ -1,0 +1,20 @@
+include head
+include nav
+
+doctype html
+html
+  head
+    +headstuff
+  body.container
+    block init
+    +nav
+      block nav
+    section.page
+      header.page-title
+        block header
+      section.content
+        section.main
+          block main
+        if side
+          section.side
+            block side

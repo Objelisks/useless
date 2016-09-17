@@ -1,23 +1,23 @@
-include ../common/nav
-include ../common/head
+extends ../common/layout
+
 include ../common/wave
 
--
-  let started = new Date(2016, 8, 6);
-  let now = Date.now();
-  let weeks = Math.floor((now-started) / (1000*60*60*24*7));
 
-doctype html
-html
-  head
-    +headstuff
-  body
-    .container
-      +nav
-      section.content.narrow
-        header: h1 Internet Website Useless Machine
-        p.
-          Hi, I'm Tim. I am #[a(href='https://twitter.com/objelisks') @objelisks] on most of the internet.
-          This website is a collection of my thoughts and projects and experiments.
-          I've been working on this website for #{weeks} #{pluralize('week', weeks)},
-          and it is #[em good] and #[strong strong] and #[+wave('beautiful')].
+block nav
+
+block header
+  h1 Internet Website Useless Machine
+
+block main
+  -
+    let side = true;
+    let started = new Date(2016, 8, 6);
+    let now = Date.now();
+    let weeks = Math.floor((now-started) / (1000*60*60*24*7));
+  p.
+    Hi, I'm Tim. I am #[a(href='https://twitter.com/objelisks') @objelisks] on most of the internet.
+    This website is a collection of my thoughts and projects and experiments.
+    I've been working on this website for #{weeks} #{pluralize('week', weeks)},
+    and it is #[em good] and #[strong strong] and #[+wave('beautiful')].
+
+block side

@@ -1,15 +1,13 @@
-include ../common/nav
-include ../common/head
-include ../common/wave
+extends ../common/layout
 
-doctype html
-html
-  head
-    +headstuff
-  body
-    .container
-      +nav
-      section.content.seaoflinks
-        header: h1 neat experimental projects
-        each thing in things
-          .thing: a(href='/things/' + thing.url)= thing.name
+block nav
+
+block header
+  h1 neat experimental projects
+
+block main
+  - let side = true;
+  each thing in things
+    .thing: a(href='/things/' + thing.url)= thing.name
+
+block side

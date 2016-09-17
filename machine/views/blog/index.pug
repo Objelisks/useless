@@ -1,28 +1,28 @@
-include ../common/header
-include ../common/head
-include ../common/nav
-include ../common/delete
+extends ../common/layout
+
 include ../common/admin
 include ./post
 
-doctype html
-html
-  head
-    +headstuff
-  body
-    .container
-      +nav
-        +adminBox('blog', article)
-        if articles
-          aside
-            h2 quicklinks
-            ul
-              each article in articles
-                li: a(href='/blog/' + article.id)= article.title
-      section.content.narrow
-        +header('hi welcome to blog posts')
-        if article
-          +post(article, false)
-        else if articles
-          each article in articles
-            +post(article, true)
+block init
+  - let side = true;
+
+block nav
+  +adminBox('blog', article)
+  if articles
+    aside
+      h2 quicklinks
+      ul
+        each article in articles
+          li: a(href='/blog/' + article.id)= article.title
+
+block header
+  h1 some real good posts
+
+block main
+  if article
+    +post(article, false)
+  else if articles
+    each article in articles
+      +post(article, true)
+
+block side

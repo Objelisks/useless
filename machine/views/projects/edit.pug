@@ -1,68 +1,69 @@
-include ../common/head
-include ../common/nav
-- project = project || {};
+extends ../common/layout
 
-doctype html
-html
-  head
-    +headstuff
-  body
-    .container
-      +nav
-      section.content
-        header: h1 edit mode project version
-        form(id='newProjectForm', action='/projects', method='post', enctype='multipart/form-data')
-          section
-            label(for='title'): strong title
-            br
-            input(name='title', type='text', value=project.title || '', placeholder='cool project')
-          section
-            label(for='img'): strong img
-            br
-            input(name='img', type='file', value='upload img')
-          section
-            label(for='body'): strong content
-            br
-            textarea(name='body', cols='40', rows='8', placeholder='lorem ipsum dolor sit') #{project.body || ''}
-          section
-            label(for='actionsList'): strong actions (#[span#actionsCounter 0])
-            br
-            script.
-              let actionsCount = 0;
-              function addAction() {
-                let nameElement = document.getElementById('new-action');
-                let urlElement = document.getElementById('new-url');
-                
-                let actionBox = document.createElement('input');
-                actionBox.name = 'actions[' + actionsCount + '][action]';
-                actionBox.type = 'text';
-                actionBox.value = nameElement.value;
-                actionBox.readOnly = true;
-                
-                let urlBox = document.createElement('input');
-                urlBox.name = 'actions[' + actionsCount + '][url]';
-                urlBox.type = 'text';
-                urlBox.value = urlElement.value;
-                urlBox.readOnly = true;
-                
-                let newListItem = document.createElement('li');
-                newListItem.appendChild(actionBox);
-                newListItem.appendChild(urlBox);
-                document.getElementById('actionsList').appendChild(newListItem);
-                
-                nameElement.value = '';
-                urlElement.value = '';
-                actionsCount += 1;
-                document.getElementById('actionsCounter').textContent = actionsCount;
-              }
-            ul(id='actionsList')
-            section
-              input(id='new-action', type='text', placeholder='label')
-              input(id='new-url', type='url', placeholder='http://example.com')
-              input(id='addAction', type='button', value='add action')
-          hr
-          input(type='submit', value='submit')
-          script.
-            document.addEventListener('DOMContentLoaded', () => {
-              document.getElementById('addAction').addEventListener('click', addAction);
-            });
+block init
+  - let project = project || {};
+  - let side = true;
+
+block nav
+
+block header
+  h1 add a neat project
+
+block main
+  form(id='newProjectForm', action='/projects', method='post', enctype='multipart/form-data')
+    section
+      label(for='title'): strong title
+      br
+      input(name='title', type='text', value=project.title || '', placeholder='cool project')
+    section
+      label(for='img'): strong img
+      br
+      input(name='img', type='file', value='upload img')
+    section
+      label(for='body'): strong content
+      br
+      textarea(name='body', cols='40', rows='8', placeholder='lorem ipsum dolor sit') #{project.body || ''}
+    section
+      label(for='actionsList'): strong actions (#[span#actionsCounter 0])
+      br
+      script.
+        let actionsCount = 0;
+        function addAction() {
+          let nameElement = document.getElementById('new-action');
+          let urlElement = document.getElementById('new-url');
+          
+          let actionBox = document.createElement('input');
+          actionBox.name = 'actions[' + actionsCount + '][action]';
+          actionBox.type = 'text';
+          actionBox.value = nameElement.value;
+          actionBox.readOnly = true;
+          
+          let urlBox = document.createElement('input');
+          urlBox.name = 'actions[' + actionsCount + '][url]';
+          urlBox.type = 'text';
+          urlBox.value = urlElement.value;
+          urlBox.readOnly = true;
+          
+          let newListItem = document.createElement('li');
+          newListItem.appendChild(actionBox);
+          newListItem.appendChild(urlBox);
+          document.getElementById('actionsList').appendChild(newListItem);
+          
+          nameElement.value = '';
+          urlElement.value = '';
+          actionsCount += 1;
+          document.getElementById('actionsCounter').textContent = actionsCount;
+        }
+      ul(id='actionsList')
+      section
+        input(id='new-action', type='text', placeholder='label')
+        input(id='new-url', type='url', placeholder='http://example.com')
+        input(id='addAction', type='button', value='add action')
+    hr
+    input(type='submit', value='submit')
+    script.
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('addAction').addEventListener('click', addAction);
+      });
+
+block side
