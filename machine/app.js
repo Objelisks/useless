@@ -108,7 +108,7 @@ if(disableHttps) {
   let https = require('https');
   let httpsOptions = {
     key: fs.readFileSync('creds/key.pem'),
-    cert: fs.readFileSync('creds/cert.pem')
+    cert: fs.readFileSync('creds/fullchain.pem')
   };
   
   https.createServer(httpsOptions, app).listen(port, () => {

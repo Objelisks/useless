@@ -6,6 +6,10 @@ let marked = require('marked');
 
 let routes = express.Router();
 
+routes.param('page', (req, res, next, id) => {
+  req.page = Math.abs(parseInt(id));
+  next();
+});
 
 routes.param('article', (req, res, next, id) => {
   db.run(r.table('articles').get(id), (err, article) => {
@@ -18,8 +22,9 @@ routes.param('article', (req, res, next, id) => {
   });
 });
 
-routes.get('/', (req, res) => {
-  db.run(r.table('articles').orderBy({index: r.desc('date')}).limit(10), (err, cursor) => {
+routes.get(['/', '/page/:page'], (req, res) => {
+  let page = req.page ? (req.page-1)*10 : 0;
+  db.run(r.table('articles').orderBy({index: r.desc('date')}).skip(page).limit(10), (err, cursor) => {
       if(err) {
         res.status(500).send(err);
       } else {
