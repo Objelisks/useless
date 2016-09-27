@@ -1,9 +1,15 @@
 extends ../common/layout
 
-include ../common/delete
 include project
 
 block main
-  +deletables
-  each thing in projects
-    +project(thing)
+  -
+    let groups = [];
+    let rowlen = 3;
+    for(let i=0; i<projects.length; i+=rowlen) {
+      groups.push(projects.slice(i, i+rowlen));
+    }
+  each group in groups
+    section.fl.w-100
+      each thing in group
+        +project(thing)

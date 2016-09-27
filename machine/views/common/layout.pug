@@ -3,7 +3,7 @@ include head
 -
   let navLinks = [
     {ref: '/', name: 'about', color: 'hover-dark-red'},
-    {ref: '/blog', name: 'blog', color: 'hover-orange'},
+    {ref: '/blog', name: 'blog', color: 'hover-light-red'},
     {ref: '/projects', name: 'projects', color: 'hover-gold'},
     {ref: '/things', name: 'things', color: 'hover-green'},
     {ref: 'https://twitter.com/objelisks', name: 'twitter', color: 'hover-blue'}
@@ -19,5 +19,5 @@ html
       br.dn-ns
       each link in navLinks
         a(href=link.ref, class=link.color).link.gray.f4.f5-ns.dib.mr3= link.name
-    section.pl4-ns.mt4
+    section.pl4-ns.mt4.cf
       block main

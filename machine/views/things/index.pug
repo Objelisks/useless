@@ -1,6 +1,8 @@
 extends ../common/layout
 
 block main
+  section.measure.ph2.f4.
+    Here are a bunch of unsorted things I've worked on. These are all prototype projects, or other things with varying levels of polish which I wanted to host somewhere anyways.
   ul.pl0.w-75.w-third-ns
     each thing in things
       li.dib.mr3.mb2.pl2: a(href='/things/' + thing.url).link.blue.dim.f3.f4-ns= thing.name

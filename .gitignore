@@ -2,5 +2,4 @@ node_modules
 rethinkdb_data
 rethinkdb.exe
 machine/assets/images/projects
-key.pem
-cert.pem
+machine/creds/*

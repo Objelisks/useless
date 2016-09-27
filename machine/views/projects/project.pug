@@ -1,9 +1,9 @@
 mixin project(data)
-  article.fl.w-100.w-50-m.w-25-l.mb6.mb2-ns.pr3-ns
-    img(src='/images/projects/' + data.img).img.w-100
+  article.fl.w-100.w-50-m.w-25-l.pa4
+    img(src='/images/projects/' + data.img).img.w-100.ba.b--light-gray
     section.pl2
       header: h2.f2.f4-ns.mv1= data.title
-      p.measure-narrow= data.body
-      section.v-btm
+      p.measure-narrow.h-auto= data.body
+      section
         each action in data.actions
           a(href=action.url).link.blue.dim.f3.f4-ns.dib.mr3= action.action
