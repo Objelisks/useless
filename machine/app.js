@@ -74,12 +74,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/twits', passport.authenticate('twitter', {
-  successRedirect: 'back',
-  failureRedirect: 'back'
+  successRedirect: '/',
+  failureRedirect: '/'
 }));
 app.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('back');
+  res.redirect('/');
 });
 
 // website parts
@@ -87,6 +87,7 @@ app.use('/', require('./server/indexHandler.js'));
 app.use('/blog', require('./server/blogHandler.js'));
 app.use('/projects', require('./server/projectsHandler.js'));
 app.use('/things', require('./server/thingsHandler.js'));
+app.use('/admin', require('./server/adminHandler.js'));
 
 // o no
 app.use((req, res) => {

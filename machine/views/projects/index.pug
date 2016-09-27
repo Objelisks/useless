@@ -1,21 +1,9 @@
 extends ../common/layout
 
 include ../common/delete
-include ../common/admin
 include project
 
-block nav
-  +deletables
-  +adminBox('projects')
-
-block header
-  h1 fine fine projects
-
 block main
-  - let side = false;
-  .container.wrap
-    each thing in projects
-      +project(thing)
-      
-block side
-  fgsfds
+  +deletables
+  each thing in projects
+    +project(thing)

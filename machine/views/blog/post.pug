@@ -1,19 +1,17 @@
 mixin post(data, shortmode)
   if shortmode
-    article.box
-      header.container.split
+    article.measure.pl2.mb4
+      header
         h2= data.title
-        span.post-date= data.date.toDateString()
-      hr
       - let content = marked(data.body);
       - let jumpPost = content.indexOf('#hitthejump');
       - let shortContent = jumpPost > 0 ? content.substr(0, jumpPost) : content.split('\n').slice(0, 3).join('\n');
-      section!= shortContent
-      a(href='/blog/' + data.id) full article
+      section.ph2!= shortContent
+      a(href='/blog/' + data.id).link.blue.dim.f5.f4-ns.dib full article
   else
-    article.box
-      header.container.split
+    article.measure
+      header
         h2= data.title
-        span.post-date= data.date.toDateString()
-      hr
-      section!= marked(data.body.replace('#hitthejump', ''))
+        span= data.date.toDateString()
+      section.lh-copy!= marked(data.body.replace('#hitthejump', ''))
+      a(href='/blog').link.blue.dim.f5.f4-ns.dib.pa2.mt3 back

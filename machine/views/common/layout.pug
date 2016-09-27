@@ -1,20 +1,23 @@
 include head
-include nav
+
+-
+  let navLinks = [
+    {ref: '/', name: 'about', color: 'hover-dark-red'},
+    {ref: '/blog', name: 'blog', color: 'hover-orange'},
+    {ref: '/projects', name: 'projects', color: 'hover-gold'},
+    {ref: '/things', name: 'things', color: 'hover-green'},
+    {ref: 'https://twitter.com/objelisks', name: 'twitter', color: 'hover-blue'}
+  ];
 
 doctype html
 html
   head
     +headstuff
-  body.container
-    block init
-    +nav
-      block nav
-    section.page
-      header.page-title
-        block header
-      section.content
-        section.main
-          block main
-        if side
-          section.side
-            block side
+  body.sans-serif.navy
+    header: nav.pl2.pl3-ns.pt2.pt3-ns
+      h1.black.b.f4.f5-ns.dib.mr3.mv0 Internet Website Useless Machine
+      br.dn-ns
+      each link in navLinks
+        a(href=link.ref, class=link.color).link.gray.f4.f5-ns.dib.mr3= link.name
+    section.pl4-ns.mt4
+      block main

@@ -1,12 +1,9 @@
 mixin project(data)
-  article.project.box
-    .project-header
-      h3.title= data.title
-      if req.user && req.user.admin
-        .container.column
-          a.delete(href='#', onclick='deletePost("projects", "' + data.id + '")') delete
-    img(src='/images/projects/' + data.img)
-    p= data.body
-    .project-actions
-      each action in data.actions
-        a(href=action.url)= action.action
+  article.fl.w-100.w-50-m.w-25-l.mb6.mb2-ns.pr3-ns
+    img(src='/images/projects/' + data.img).img.w-100
+    section.pl2
+      header: h2.f2.f4-ns.mv1= data.title
+      p.measure-narrow= data.body
+      section.v-btm
+        each action in data.actions
+          a(href=action.url).link.blue.dim.f3.f4-ns.dib.mr3= action.action
