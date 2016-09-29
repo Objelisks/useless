@@ -2,8 +2,8 @@ include head
 
 -
   let navLinks = [
-    {ref: '/', name: 'about', color: 'hover-dark-red'},
-    {ref: '/blog', name: 'blog', color: 'hover-light-red'},
+    {ref: '/', name: 'about', color: 'hover-light-purple'},
+    {ref: '/blog', name: 'blog', color: 'hover-red'},
     {ref: '/projects', name: 'projects', color: 'hover-gold'},
     {ref: '/things', name: 'things', color: 'hover-green'},
     {ref: 'https://twitter.com/objelisks', name: 'twitter', color: 'hover-blue'}
@@ -15,7 +15,7 @@ html
     +headstuff
   body.sans-serif.navy
     header: nav.pl2.pl3-ns.pt2.pt3-ns
-      h1.black.b.f4.f5-ns.dib.mr3.mv0 Internet Website Useless Machine
+      h1.navy.b.f4.f5-ns.dib.mr3.mv0 Internet Website Useless Machine
       br.dn-ns
       each link in navLinks
         a(href=link.ref, class=link.color).link.gray.f4.f5-ns.dib.mr3= link.name

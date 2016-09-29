@@ -7,11 +7,11 @@ mixin post(data, shortmode)
       - let jumpPost = content.indexOf('#hitthejump');
       - let shortContent = jumpPost > 0 ? content.substr(0, jumpPost) : content.split('\n').slice(0, 3).join('\n');
       section.ph2!= shortContent
-      a(href='/blog/' + data.id).link.blue.dim.f5.f4-ns.dib full article
+      a(href='/blog/' + data.id).f5.f4-ns.dib full article
   else
     article.measure
       header
         h2= data.title
         span= data.date.toDateString()
       section.lh-copy!= marked(data.body.replace('#hitthejump', ''))
-      a(href='/blog').link.blue.dim.f5.f4-ns.dib.pa2.mt3 back
+      a(href='/blog').f5.f4-ns.dib.pa2.mt3 back

@@ -1,3 +1,19 @@
+a {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .15s ease-in;
+  color: #357EDD;
+}
+
+a:hover {
+  opacity: 0.6;
+  transition: opacity .15s ease-in;
+}
+
+a:active {
+  opacity: 0.8;
+  transition: opacity .15s ease-out;
+}
 
 .admin:after {
   display: inline-block;
