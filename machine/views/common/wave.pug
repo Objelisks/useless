@@ -1,3 +1,4 @@
 mixin wave(text)
-  each c, i in text.split('')
-    span.wave(class='wave-' + String.fromCharCode(97+i%5))= c
+  span.wave
+    each c, i in text.split('')
+      span= c

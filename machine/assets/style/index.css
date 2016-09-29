@@ -31,27 +31,27 @@ a:active {
   background-image: url(../emoji/dame.svg);
 }
 
-.wave {
+.wave span {
   position: relative;
   animation: 0.5s linear 0s infinite alternate floating;
 }
-.wave-a {
+.wave span:nth-child(5n+0) {
   top: -3px;
   animation-delay: -.8s;
 }
-.wave-b {
+.wave span:nth-child(5n+1) {
   top: -0.6px;
   animation-delay: -.6s;
 }
-.wave-c {
+.wave span:nth-child(5n+2) {
   top: 1.8px;
   animation-delay: -.4s;
 }
-.wave-d {
+.wave span:nth-child(5n+3) {
   top: 1.2px;
   animation-delay: -.2s;
 }
-.wave-e {
+.wave span:nth-child(5n+4) {
   top: -1.2px;
   animation-delay: 0s;
 }
